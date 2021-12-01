@@ -62,7 +62,7 @@ void insertionSort(int *array, int size)
         while (j >= 0 && array[j] > key)
         {
             array[j + 1] = array[j];
-            j = j - 1;
+            j -= 1;
         }
         array[j + 1] = key;
     }
