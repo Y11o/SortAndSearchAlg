@@ -1,0 +1,3 @@
+﻿  SortTests.cpp
+D:\My projects\VS repos\SearchAndSort\SortAndTimeTest.h(24): warning C4715: binarySearch: значение возвращается не при всех путях выполнения
+  SortTests.vcxproj -> D:\My projects\VS repos\SearchAndSort\Debug\SortTests.dll

@@ -1,0 +1,4 @@
+﻿  Source.cpp
+D:\My projects\VS repos\SearchAndSort\Source.cpp(4,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\My projects\VS repos\SearchAndSort\SortAndTimeTest.h(24): warning C4715: binarySearch: значение возвращается не при всех путях выполнения
+  SearchAndSort.vcxproj -> D:\My projects\VS repos\SearchAndSort\Debug\SearchAndSort.lib
