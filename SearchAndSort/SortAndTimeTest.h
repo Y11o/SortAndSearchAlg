@@ -106,17 +106,24 @@ void countingSort(char* array, int size) {
 }
 
 void timeTest() {
-    bool flag = true;
-    int size, maxVal;
-    int count = 0;
+    int maxVal, multiplier, testsCount;
+    int size = 1;
     float resQuick = 0;
     float resInsert = 0;
-    while (flag) {
-        cout << "Input arrays size." << endl;
-        cin >> size;
-        cout << "Input max possible value for the arrays" << endl;
-        cin >> maxVal;
-
+    cout << "Input quantity of tests you want to run" << endl;
+    cin >> testsCount;
+    testsCount++;
+    cout << "Input max possible value for the arrays" << endl;
+    cin >> maxVal;
+    cout << "Input the multiplier for the array dimension for each test" << endl;
+    cin >> multiplier;
+    cout << endl;
+    for (int i = 1; i < testsCount; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            size *= multiplier;
+        }
         int* quickArr = new int[size];
         int* insertArr = new int[size];
         for (int i = 0; i < size; i++)
@@ -135,17 +142,18 @@ void timeTest() {
         duration<float> timeInsert = endInsert - startInsert;
 
         cout << "Quick Sort " << " spend " << timeQuick.count() << " seconds to sort array of " << size << " numbers and max value " << maxVal << endl;
-        cout << "Insertion Sort " << " spend " << timeInsert.count() << " seconds to sort array of " << size << " numbers and max value " << maxVal << endl;
+        cout << "Insertion Sort " << " spend " << timeInsert.count() << " seconds to sort array of " << size << " numbers and max value " << maxVal << endl << endl;
 
-        count++;
-        resQuick = (resQuick + timeQuick.count()) / count;
-        resInsert = (resInsert + timeInsert.count()) / count;
+        testsCount--;
+        resQuick = (resQuick + timeQuick.count()) / testsCount;
+        resInsert = (resInsert + timeInsert.count()) / testsCount;
+        testsCount++;
 
         delete[] quickArr;
         delete[] insertArr;
-        cout << "Input 0 to exit or 1 to continue" << endl;
-        cin >> flag;
-    }
-    cout << "According to the results of " << count << "tests, " << "Quick Sort spends" << resQuick << " seconds to sort arrays." << endl;
-    cout << "According to the results of " << count << "tests, " << "Insertion Sort spends" << resInsert << " seconds to sort arrays." << endl;
+        size = 1;
+    } 
+    testsCount--;
+    cout << "According to the results of " << testsCount << " tests, " << "Quick Sort spends " << resQuick << " seconds to sort arrays." << endl;
+    cout << "According to the results of " << testsCount << " tests, " << "Insertion Sort spends " << resInsert << " seconds to sort arrays." << endl;
 }
